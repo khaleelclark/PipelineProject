@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TaskManager {
+    //Jenkins test ignore this comment
     static TaskList taskList = new TaskList();
     public static Scanner scanner = new Scanner(System.in);
 
