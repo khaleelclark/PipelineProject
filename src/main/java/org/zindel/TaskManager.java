@@ -33,6 +33,7 @@ public class TaskManager {
                     break;
                 case "7": {
                     System.out.println("Thank you for using Zindel's Task Management System");
+                    System.out.println("This is the updated version");
                     System.exit(0);
                     break;
                 }
