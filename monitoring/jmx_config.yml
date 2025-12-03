@@ -1,0 +1,36 @@
+startDelaySeconds: 0
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+
+rules:
+  # Thread count
+  - pattern: 'java.lang:type=Threading'
+    name: jvm_threads_live
+    attr: ThreadCount
+    type: GAUGE
+
+  # GC pause time (ms → seconds)
+  - pattern: 'java.lang:type=GarbageCollector,name=(.*)'
+    name: jvm_gc_pause_seconds_sum
+    attr: CollectionTime
+    type: COUNTER
+    valueFactor: 0.001
+
+  # GC pause count
+  - pattern: 'java.lang:type=GarbageCollector,name=(.*)'
+    name: jvm_gc_pause_seconds_count
+    attr: CollectionCount
+    type: COUNTER
+
+  # Heap + Memory pools
+  - pattern: 'java.lang:type=MemoryPool,name=(.*)'
+    name: jvm_memory_bytes_used
+    attr: Usage.used
+    type: GAUGE
+
+  # CPU time (ns → seconds)
+  - pattern: 'java.lang:type=OperatingSystem'
+    name: process_cpu_seconds_total
+    attr: ProcessCpuTime
+    type: COUNTER
+    valueFactor: 1e-9
