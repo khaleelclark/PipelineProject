@@ -1,7 +1,6 @@
 package org.zindel;
 
 public class AdvancedDemoRunner {
-    //test change for test commit
 
     public static void main(String[] args) {
         Logger.info("=== FINAL PROJECT DEMO START ===");
