@@ -29,10 +29,10 @@ class TaskTest {
     @Test
     void testTaskStatusOutput() {
         Task task = new Task("Do homework", true, "3");
-        assertEquals("Completed ✓", task.taskStatus());
+        assertEquals("Completed", task.taskStatus());
 
         task.setTaskStatus(false);
-        assertEquals("Incomplete ✗", task.taskStatus());
+        assertEquals("Incomplete", task.taskStatus());
     }
 
     @Test

@@ -17,6 +17,7 @@ public class TaskManager {
             System.out.println("5. View all completed tasks");
             System.out.println("6. View all incomplete tasks");
             System.out.println("7. Exit the Task Management System");
+            System.out.println("8. CPU test");
 
             switch (scanner.nextLine()) {
                 case "1": addTask();
@@ -37,6 +38,9 @@ public class TaskManager {
                     System.exit(0);
                     break;
                 }
+                case "8": {
+                    burnCpu(20);
+                }
                 default:
                     System.err.println("Error: invalid entry.\n");
                     break;
@@ -53,7 +57,9 @@ public class TaskManager {
         if (!taskName.equalsIgnoreCase("c")) {
             Task t = new Task(taskName, false, id);
             taskList.add(t);
-            System.out.println("Task: " + t.getTaskName() + " added successfully.");
+            //System.out.println("Task: " + t.getTaskName() + " added successfully.");
+            Logger.info("Task: " + t.getTaskName() + " added successfully.");
+
         } else {
             System.out.println("Add task operation cancelled.");
         }
@@ -72,7 +78,9 @@ public class TaskManager {
         Task taskToRemove = getTaskByID(idToRemove);
 
         if (taskToRemove == null) {
-            System.out.println("No task found with ID: " + idToRemove);
+            //System.out.println("No task found with ID: " + idToRemove);
+            Logger.error("No task found with ID: " + idToRemove, null);
+
             return;
         }
 
@@ -149,5 +157,15 @@ public class TaskManager {
         if (getTaskByID(uniqueId) == null) return uniqueId;
         else return generateTaskId();
     }
+
+    public static void burnCpu(int seconds) {
+        Logger.info("Starting CPU spike for " + seconds + " seconds...");
+        long end = System.currentTimeMillis() + seconds * 1000;
+        while (System.currentTimeMillis() < end) {
+            Math.sqrt(Math.random());
+        }
+        Logger.info("CPU spike finished");
+    }
+
 }
 
