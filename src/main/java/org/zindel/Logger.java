@@ -12,6 +12,10 @@ public class Logger {
         log("INFO", msg, null);
     }
 
+    public static void warning(String msg) {
+        log("WARNING", msg, null);
+    }
+
     public static void error(String msg, Throwable t) {
         log("ERROR", msg, t);
     }

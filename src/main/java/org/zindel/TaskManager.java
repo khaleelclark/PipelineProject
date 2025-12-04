@@ -162,7 +162,7 @@ public class TaskManager {
         Logger.info("Starting CPU spike for " + seconds + " seconds...");
         long end = System.currentTimeMillis() + seconds * 1000;
         while (System.currentTimeMillis() < end) {
-            Math.sqrt(Math.random()); // busy work
+            Math.sqrt(Math.random());
         }
         Logger.info("CPU spike finished");
     }

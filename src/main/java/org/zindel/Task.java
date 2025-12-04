@@ -36,14 +36,14 @@ public class Task {
 
     public String taskStatus () {
         if (taskStatus) {
-            return "Completed ✓";
+            return "Completed";
         } else {
-            return "Incomplete ✗";
+            return "Incomplete";
         }
     }
 
     public String getTaskInformation() {
-        return "ID: " + taskId + " | Task Name: " + taskName + " | Status: " + (taskStatus ? "Completed ✓" : "Incomplete ✗");
+        return "ID: " + taskId + " | Task Name: " + taskName + " | Status: " + (taskStatus ? "Completed" : "Incomplete");
     }
 
 }
